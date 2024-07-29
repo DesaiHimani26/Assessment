@@ -28,7 +28,7 @@ public class DriverFactory {
                 ChromeDriverService service =
                         new ChromeDriverService.Builder().withSilent(true).build();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
+                //chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 webDriver = new ChromeDriver(service,chromeOptions);
                 break;

@@ -20,12 +20,6 @@ public class BoardPage {
     @FindBy(xpath = "//h1[@data-testid='board-name-display']")
     private WebElement boardNameHeading;
 
-//    @FindBy(xpath = "//h2[contains(@aria-label,'Your boards')]")
-//    private WebElement boardSideBar;
-//
-//    @FindBy(className = "board-menu-content-frame")
-//    private WebElement boardMenu;
-
     @FindBy(xpath = "//button[@aria-label='Show menu']")
     private WebElement boardActionMenu;
 
@@ -62,21 +56,11 @@ public class BoardPage {
     @FindBy(xpath = "//textarea[@data-testid='list-card-composer-textarea']")
     private WebElement cardName;
 
-//    @FindBy(xpath = "//div[contains(@class,'list-cards')])[1]//span[contains(@class,'list-card-title js-card-name')]")
-//    private List<WebElement> todoList;
-//
-//    @FindBy(xpath = "//*[@data-testid='list-wrapper'][contains(.,'Doing')]")
-//    private WebElement doingList;
-//
-//    @FindBy(xpath = "//button[contains(text(),'Add a card')])[2]")
-//    private WebElement addCard_Doing;
-
     @FindBy(xpath = "//button[@data-testid='list-composer-button']")
     private WebElement listComposeButton;
 
 
-    Long timeOut = 5L;
-    static String parameter = null;
+    Long timeOut = 6L;
 
     public BoardPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -110,6 +94,7 @@ public class BoardPage {
         CustomCommands.sendKeys(webDriver, listName, timeOut, listTitle);
         CustomCommands.click(webDriver, addList, timeOut);
         CustomCommands.untilElementIsClickable(webDriver, addCardListButton, timeOut);
+        CustomCommands.sleep(2L);
     }
 
     public void createAnotherList(String listTitle) {
@@ -130,7 +115,6 @@ public class BoardPage {
                 if (!isDisplayed) {
                     CustomCommands.click(webDriver, addCardListButton, 3L);
                 }
-
 
                 for (List<String> cardList : rows) {
                     CustomCommands.sendKeys(webDriver, cardName, timeOut, cardList.get(0));
@@ -186,13 +170,13 @@ public class BoardPage {
         while (retryCount > 0) {
             try {
                 WebElement editMenuForList = CustomCommands.getElementWithXpath(webDriver, "//h2[@data-testid='list-name'][contains(text(),'" + listTitle + "')]/ancestor :: div[@data-testid='list-header']//button[@data-testid='list-edit-menu-button']");
-                CustomCommands.untilElementIsClickable(webDriver, editMenuForList, timeOut);
+                CustomCommands.untilElementIsVisible(webDriver, editMenuForList, timeOut);
+                CustomCommands.sleep(2L);
                 CustomCommands.click(webDriver, editMenuForList, timeOut);
                 WebElement menuItelList = CustomCommands.getElementWithXpath(webDriver, "//section[@data-testid='list-actions-popover']");
                 CustomCommands.untilElementIsVisible(webDriver, menuItelList, timeOut);
-                // Locate the desired menu item by its text and click it
                 WebElement menuItem = CustomCommands.getElementWithXpath(webDriver, "//section[@data-testid='list-actions-popover']//li//span[contains(text(),'Archive this list')]");
-                menuItem.click();
+                CustomCommands.click(webDriver, menuItem, timeOut);
                 break;
 
             } catch (StaleElementReferenceException e) {
@@ -208,10 +192,7 @@ public class BoardPage {
     }
 
     public boolean verifyListWithTitle(String listTitle) {
-        if (webDriver.findElements(By.xpath("//h2[@data-testid='list-name'][contains(text(),'" + listTitle + "')]")).isEmpty())
-            return true;
-        else
-            return false;
+        return webDriver.findElements(By.xpath("//h2[@data-testid='list-name'][contains(text(),'" + listTitle + "')]")).isEmpty();
     }
 
 }

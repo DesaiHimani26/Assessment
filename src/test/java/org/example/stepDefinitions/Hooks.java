@@ -41,7 +41,6 @@ public class Hooks {
             }
             if (webDriver != null) {
                 webDriver.quit();
-                webDriver = null;
             }
         }
         TestBase.getInstance().reset();
@@ -72,7 +71,6 @@ public class Hooks {
         }
         if (webDriver != null) {
             testBase.getDriverManager().closeDriver();
-            webDriver = null;
         }
     }
 

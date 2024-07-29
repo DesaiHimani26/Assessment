@@ -54,4 +54,12 @@ public class CustomCommands {
     public static WebElement getElementWithXpath(WebDriver webDriver, String xpathString){
         return webDriver.findElement(By.xpath(xpathString));
     }
+
+    public static void sleep(Long timeOutInSeconds) {
+        try {
+            Thread.sleep(timeOutInSeconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
