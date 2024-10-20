@@ -33,7 +33,8 @@ export class APIClient {
             url: endpoint,
             qs: queries,
             headers: header,
-            body: payload
+            body: payload,
+            failOnStatusCode: false
         })
             .then((response) => {
                 return response;
