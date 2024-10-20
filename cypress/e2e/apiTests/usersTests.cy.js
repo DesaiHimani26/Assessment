@@ -1,4 +1,4 @@
-import { createRandomUser, verifyUserDetails, updateUserDetails, deleteUserAndVerify, fetchPaginatedUsers, validatePagination } from '../../pageObjects/apiObjects/helperAPI';
+import { createRandomUser, verifyUserDetails, updateUserDetails, deleteUserAndVerify, fetchPaginatedUsers, validatePagination } from '../../pageObjects/apiObjects/HelperAPI';
 const { faker } = require('@faker-js/faker');
 import { UsersAPI } from "../../pageObjects/apiObjects/UsersAPI";
 

@@ -1,4 +1,4 @@
-import { createRandomUser } from '../../pageObjects/apiObjects/helperAPI';
+import { createRandomUser } from '../../pageObjects/apiObjects/HelperAPI';
 import { PostsAPI } from "../../pageObjects/apiObjects/PostsAPI";
 
 const postsAPI = new PostsAPI();

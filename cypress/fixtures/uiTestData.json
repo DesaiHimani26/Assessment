@@ -1,0 +1,22 @@
+{
+  "postcode": "9713RD",
+  "houseNumber": "63",
+  "exactAddress": "Irislaan 63, 9713RD GRONINGEN",
+  "questions": {
+    "energyType": "Stroom & gas",
+    "consumptionKnown": "Ja, ik vul mijn verbruik zelf in",
+    "smartMeter": "Ja, ik heb een slimme meter",
+    "solarPanel": "Nee, ik wek zelf geen stroom op",
+    "isMoving": "Nee, ik ga niet verhuizen",
+    "consumptionData": {
+      "normalConsumption": 1237,
+      "offPeakConsumption": 1567,
+      "gasConsumption": 1326
+    }
+  },
+  "offerData": {
+    "contractType": "Dynamisch",
+    "dynamicContractOption": "Dynamisch stroom en vast 3 jaar gas",
+    "sameAddress": "Ja"
+  }
+}

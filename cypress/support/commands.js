@@ -25,3 +25,22 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
+
+Cypress.Commands.add('getByDataLabel', (selector) => {
+    return cy.get(`[data-label="${selector}"]`);
+})
+
+Cypress.Commands.add('getInputByName', (fieldName) => {
+    return cy.get(`input[name="${fieldName}"]`);
+})
+
+Cypress.Commands.add('getInputByLabel', (labelText) => {
+    return cy.contains('label span', labelText)
+    .closest('label')
+    .find('input');
+})
+
+Cypress.Commands.add('getByButtonText', (fieldName) => {
+    return cy.get(`button[name=${fieldName}]`);
+})
+

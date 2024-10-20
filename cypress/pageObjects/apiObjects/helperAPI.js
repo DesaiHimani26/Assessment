@@ -1,4 +1,4 @@
-import { UsersAPI } from "../../pageObjects/apiObjects/UsersAPI";
+import { UsersAPI } from "./UsersAPI";
 
 const usersAPI = new UsersAPI();
 

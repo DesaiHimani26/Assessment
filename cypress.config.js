@@ -18,9 +18,10 @@ module.exports = defineConfig({
       return config; // Return the updated config
       },
     specPattern: "cypress/e2e/*/*.*",
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 30000,
     chromeWebSecurity: false,
     watchForFileChanges: false,
     video:true,
+    baseUrl: "https://www.eneco.nl/",
   }
 });
