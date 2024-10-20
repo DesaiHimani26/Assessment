@@ -8,6 +8,7 @@ export class UsersAPI {
 
     constructor() {
         this.token =  Cypress.env('ACCESS_TOKEN');
+        console.log("Loaded Token:", this.token);
         this.header = {
             Authorization: `Bearer ${this.token}`,
           };

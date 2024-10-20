@@ -36,4 +36,30 @@ jobs:
 
       # Step 5: Run Cypress tests in headless mode using the test-headless script
       - name: Run Cypress tests headless
+        env: # Set environment variables directly
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_URL: 'https://gorest.co.in'
         run: npm run test-headless
+
+      # Step 6: Upload Cypress test results (Mochawesome Report)
+      - name: Upload Cypress Mochawesome Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-report
+          path: cypress/reports/mochawesome
+
+      # Step 7: Upload Cypress videos if tests fail
+      - name: Upload Cypress videos
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      # Step 8: Upload Cypress screenshots if tests fail
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots  
