@@ -1,4 +1,4 @@
-import { createRandomUser, verifyUserDetails, updateUserDetails, deleteUserAndVerify } from '../../pageObjects/apiObjects/helperAPI';
+import { createRandomUser, verifyUserDetails, updateUserDetails, deleteUserAndVerify, fetchPaginatedUsers, validatePagination } from '../../pageObjects/apiObjects/helperAPI';
 const { faker } = require('@faker-js/faker');
 import { UsersAPI } from "../../pageObjects/apiObjects/UsersAPI";
 
@@ -53,6 +53,15 @@ describe('Users API', () => {
 
         usersAPI.deleteUser(nonExistentUserId).then((response) => {
             expect(response.status).to.eq(404);
+        });
+    });
+
+    it('Validate pagination for Users endpoint', () => {
+        const itemsPerPage = 10; 
+        fetchPaginatedUsers(1, itemsPerPage).then((firstPageUsers) => {
+            fetchPaginatedUsers(2, itemsPerPage).then((secondPageUsers) => {
+                validatePagination(firstPageUsers, secondPageUsers, itemsPerPage);
+            });
         });
     });
 

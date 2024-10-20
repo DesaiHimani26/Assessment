@@ -34,6 +34,10 @@ export class UsersAPI {
         return APIClient.getRequest(ENDPOINTS.usersEndpoint+`/${userId}`,this.header)
     }
 
+    getUsers(qs){
+        return APIClient.getRequest(ENDPOINTS.usersEndpoint,this.header,qs)
+    }
+
     updateUser(userId, body){
         return APIClient.putRequest(ENDPOINTS.usersEndpoint+`/${userId}`,body,this.header)
     }

@@ -32,3 +32,29 @@ export const deleteUserAndVerify = (userId) => {
         expect(response.status).to.eq(204);
     });
 };
+
+
+export const fetchPaginatedUsers = (pageNumber, itemsPerPage) => {
+    const qs = {
+        page:pageNumber,
+        per_page: itemsPerPage,
+    }
+    return usersAPI.getUsers(qs)
+    .then((response) => {
+        expect(response.status).to.equal(200);
+        return response.body;
+    });
+};
+
+export const validatePagination = (firstPageUsers, secondPageUsers, itemsPerPage) => {
+    expect(firstPageUsers).to.have.length(itemsPerPage);
+    expect(secondPageUsers).to.have.length(itemsPerPage);
+
+    // Check for No Common users between pages
+    const firstPageIds = firstPageUsers.map((user) => user.id);
+    const secondPageIds = secondPageUsers.map((user) => user.id);
+
+    secondPageIds.forEach((id) => {
+        expect(firstPageIds).to.not.include(id);
+    });
+};
