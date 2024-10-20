@@ -1,4 +1,4 @@
-import { HomePage } from "../../pageObjects/uiObjects/homePage";
+import { HomePage } from "../../pageObjects/uiObjects/HomePage";
 import { OfferPage } from "../../pageObjects/uiObjects/OfferPage";
 import { QuestionsPage } from "../../pageObjects/uiObjects/QuestionsPage"
 import { completeQuestionsFlow, completeOfferFlow, completeCustomerData } from "../../pageObjects/uiObjects/HelperUI";
