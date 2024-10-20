@@ -2,7 +2,6 @@ import { UsersAPI } from "./UsersAPI";
 
 const usersAPI = new UsersAPI();
 
-
 export const createRandomUser = () => {
     const user = usersAPI.generateFakeUser();
     return usersAPI.createUser(user).then((response) => {
