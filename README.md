@@ -136,4 +136,7 @@ For CI, each pipeline trigger has corresponding HTML report and video, under Wor
 - Visual Regression (using cypress-image-diff library)
 
 ### Note: 
-There were several instances of [GoRest](https://gorest.co.in/) not loading properly. Kindly check if the site works before executing API tests or in case of failure.
+There were several instances of [GoRest](https://gorest.co.in/) not loading properly. 
+![Screenshot 2024-10-18 033914](https://github.com/user-attachments/assets/24a7cf31-a38a-4874-bdf0-3264b1d86f5d)
+
+Kindly check if the site works before executing API tests or in case of failure.
