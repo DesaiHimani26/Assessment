@@ -4,7 +4,8 @@
   "description": "Assessment",
   "main": "e2e.js",
   "scripts": {
-    "clear-reports": "rm -r cypress/reports cypress/downloads",
+    "test-api" : "npx cypress run --spec cypress/e2e/apiTests/*.cy.js",
+    "test-ui" : "npx cypress run --spec cypress/e2e/uiTests/*.cy.js",
     "test": "npx cypress run --browser chrome --headed",
     "test-headless": "npx cypress run --browser chrome"
   },
